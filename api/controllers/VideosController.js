@@ -56,27 +56,6 @@ module.exports = {
 		      
 		    });
 		})
-	},
-	test: function(req, res){
-		var AWS = require('aws-sdk');
-  
-		// Create an S3 client
-		var s3 = new AWS.S3();
-  
-		// Create a bucket and upload something into it
-		var bucketName = 'shoutout-videos';
-		var keyName = 'test/ello_world.txt';
-  
-
-		s3.createBucket({Bucket: bucketName}, function() {
-		    var params = {Bucket: bucketName, Key: keyName, Body: 'Hello World!'};
-		    s3.putObject(params, function(err, data) {
-		      if (err)
-		        console.log(err)
-			  else
-		        console.log("Successfully uploaded data to " + bucketName + "/" + keyName);
-		    });
-  		});
 	}
 };
 
