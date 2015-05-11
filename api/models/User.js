@@ -16,6 +16,10 @@ module.exports = {
       userid: {
           type: 'string',
           unique: true
+      },
+      videos: {
+        collection: 'videos',
+        via: 'userid'
       }
   }
 };

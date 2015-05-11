@@ -35,8 +35,14 @@ module.exports = {
 	      				var successObj = {
 	      					url: 'https://s3.amazonaws.com/' + bucketName + '/' + keyName
 	      				}
-	      				console.log("Successfully uploaded data to " + bucketName + "/" + keyName);
-	      				return res.ok(successObj);
+	      				Videos.create({
+	      					userid: req.param('userid'),
+	      					eventid: req.param('eventid'),
+	      					url: successObj.url
+	      				}).exec(function createCB(err, created){
+							console.log("Successfully uploaded data to " + bucketName + "/" + keyName);
+	      					return res.ok(created);
+	      				});
 	      			}
 	      		})
 	      	});
