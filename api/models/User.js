@@ -6,20 +6,19 @@
 */
 
 module.exports = {
+	autoPK: false,
 
-  attributes: {
-      id: {
-        type: 'integer',
-        autoIncrement: true,
-        primaryKey: true
-      },
-      userid: {
-          type: 'string',
-          unique: true
-      },
-      videos: {
-        collection: 'videos',
-        via: 'userid'
-      }
-  }
+	attributes: {
+		userid: {
+				type: 'string',
+				unique: true,
+				primaryKey: true,
+				required: true
+		},
+		videos: {
+			collection: 'videos',
+			via: 'userid',
+			required: true
+		}
+	}
 };

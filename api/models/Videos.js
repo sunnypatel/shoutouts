@@ -8,15 +8,17 @@
 module.exports = {
 
   attributes: {
-  	url: {
-  		type: 'string'
-  	},
-  	userid: {
-  		model: 'User'
-  	},
-  	eventid: {
-  		model: 'Events'
-  	}
+	url: {
+		type: 'string'
+	},
+	userid: {
+		model: 'User',
+		required: true
+	},
+	eventid: {
+		model: 'Events',
+		required: true
+	}
   }
 };
 

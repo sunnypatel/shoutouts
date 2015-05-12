@@ -6,15 +6,22 @@
 */
 
 module.exports = {
+	autoPk: false,
 
-  attributes: {
-      title: {
-      	type: 'string'
-      },
-      videos: {
-        collection: 'videos',
-        via: 'eventid'
-      }
-  }
+	attributes: {
+		eventid: {
+			type: 'integer',
+			autoIncrement: true,
+			unique: true,
+        	primaryKey: true
+		},
+		title: {
+			type: 'string'
+		},
+		videos: {
+			collection: 'videos',
+			via: 'eventid'
+		}
+	}
 };
 

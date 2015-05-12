@@ -47,34 +47,6 @@ module.exports = {
 	      		})
 	      	});
 		})
-	},
-	listByUser: function(req, res){
-		var userid = req.param('userid');
-		User.find({
-			userid: userid
-		}).populate('videos')
-		.exec(function(err, userObj){
-			if (err) {
-				console.log(err);
-				return res.serverError(err);
-			} else {
-				return res.ok(userObj);
-			}
-		});
-	},
-	listByEvent: function(req, res) {
-		var eventid = req.param('eventid');
-		Events.find({
-			eventid: eventid
-		}).populate('videos')
-		.exec(function(err, eventObj){
-			if (err) {
-				console.log(err);
-				return res.serverError(err);
-			} else {
-				return res.ok(eventObj);
-			}
-		})
 	}
 };
 
