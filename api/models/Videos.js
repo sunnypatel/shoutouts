@@ -19,13 +19,11 @@ module.exports = {
 	},
 	user: {
 		model: 'User',
-		required: true,
-		unique: true
+		required: true
 	},
 	event: {
 		model: 'Events',
-		required: true,
-		unique: true
+		required: true
 	}
   }
 };
