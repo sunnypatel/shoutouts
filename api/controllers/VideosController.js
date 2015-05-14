@@ -44,8 +44,12 @@ module.exports = {
 	      					url: successObj.url,
 	      					filename: filename
 	      				}).exec(function createCB(err, created){
-							console.log("Successfully uploaded data to " + bucketName + "/" + keyName);
-	      					return res.ok(created);
+	      					if (err) {
+	      						res.serverError(err);
+	      					} else {
+								console.log("Successfully uploaded data to " + bucketName + "/" + keyName);
+		      					return res.ok(created);
+	      					}
 	      				});
 	      			}
 	      		})

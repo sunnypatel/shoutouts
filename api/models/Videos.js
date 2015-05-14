@@ -11,19 +11,21 @@ module.exports = {
 	url: {
 		type: 'string'
 	},
-	userid: {
-		model: 'User',
-		required: true
-	},
 	filename: {
 		type: 'string'
 	},
 	name: {
 		type: 'string'
 	},
+	userid: {
+		model: 'User',
+		required: true,
+		unique: true
+	},
 	eventid: {
 		model: 'Events',
-		required: true
+		required: true,
+		unique: true
 	}
   }
 };
