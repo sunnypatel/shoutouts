@@ -6,12 +6,11 @@
 */
 
 module.exports = {
-
 	attributes: {
 		userid: {
 			type: 'string',
-			unique: true,
-			required: true
+			required: true,
+			unique: true
 		},
 		videos: {
 			collection: 'videos',

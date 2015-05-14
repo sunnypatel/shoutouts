@@ -37,20 +37,28 @@ module.exports = {
 	      				var successObj = {
 	      					url: 'https://s3.amazonaws.com/' + bucketName + '/' + keyName
 	      				}
-	      				Videos.create({
-	      					userid: req.param('userid'),
-	      					eventid: req.param('eventid'),
-	      					name: req.param('name'),
-	      					url: successObj.url,
-	      					filename: filename
-	      				}).exec(function createCB(err, created){
+	      				User.findOne({userid: req.param('userid')})
+	      				.exec(function found(err, userObj){
 	      					if (err) {
 	      						res.serverError(err);
 	      					} else {
-								console.log("Successfully uploaded data to " + bucketName + "/" + keyName);
-		      					return res.ok(created);
+			      				Videos.create({
+			      					userid: userObj.id,
+			      					eventid: req.param('eventid'),
+			      					name: req.param('name'),
+			      					url: successObj.url,
+			      					filename: filename
+			      				}).exec(function createCB(err, created){
+			      					if (err) {
+			      						res.serverError(err);
+			      					} else {
+										console.log("Successfully uploaded data to " + bucketName + "/" + keyName);
+				      					return res.ok(created);
+			      					}
+			      				});
 	      					}
 	      				});
+
 	      			}
 	      		})
 	      	});

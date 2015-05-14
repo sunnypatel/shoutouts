@@ -6,15 +6,8 @@
 */
 
 module.exports = {
-	autoPk: false,
 
 	attributes: {
-		eventid: {
-			type: 'integer',
-			autoIncrement: true,
-			unique: true,
-        	primaryKey: true
-		},
 		title: {
 			type: 'string'
 		},
