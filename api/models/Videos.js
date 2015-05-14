@@ -15,6 +15,12 @@ module.exports = {
 		model: 'User',
 		required: true
 	},
+	filename: {
+		type: 'string'
+	},
+	name: {
+		type: 'string'
+	},
 	eventid: {
 		model: 'Events',
 		required: true

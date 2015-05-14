@@ -6,6 +6,7 @@
  */
 var AWS = require('aws-sdk');
 var fs = require('fs');
+var uuid = require('node-uuid');
 
 module.exports = {
 	upload: function(req, res) {
@@ -21,9 +22,10 @@ module.exports = {
    			}
 			var file = fs.readFileSync(uploadedFiles[0].fd);
 		    var s3 = new AWS.S3();
-
+		    var uuid1 = uuid.v1();
+		    var filename = uuid1 + uploadedFiles[0].filename;
 		    var bucketName = 'shoutout-videos';
-		    var keyName = req.param('eventid') + '/' + uploadedFiles[0].filename;
+		    var keyName = req.param('eventid') + '/' + filename;
 	      	s3.createBucket({
 	      		Bucket: bucketName
 	      	}, function() {
@@ -38,7 +40,9 @@ module.exports = {
 	      				Videos.create({
 	      					userid: req.param('userid'),
 	      					eventid: req.param('eventid'),
-	      					url: successObj.url
+	      					name: req.param('name'),
+	      					url: successObj.url,
+	      					filename: filename
 	      				}).exec(function createCB(err, created){
 							console.log("Successfully uploaded data to " + bucketName + "/" + keyName);
 	      					return res.ok(created);
