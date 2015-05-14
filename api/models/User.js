@@ -6,14 +6,12 @@
 */
 
 module.exports = {
-	autoPK: false,
 
 	attributes: {
 		userid: {
-				type: 'string',
-				unique: true,
-				primaryKey: true,
-				required: true
+			type: 'string',
+			unique: true,
+			required: true
 		},
 		videos: {
 			collection: 'videos',
