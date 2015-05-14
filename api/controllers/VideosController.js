@@ -43,8 +43,8 @@ module.exports = {
 	      						res.serverError(err);
 	      					} else {
 			      				Videos.create({
-			      					userid: userObj.id,
-			      					eventid: req.param('eventid'),
+			      					user: userObj.id,
+			      					event: req.param('eventid'),
 			      					name: req.param('name'),
 			      					url: successObj.url,
 			      					filename: filename

@@ -17,12 +17,12 @@ module.exports = {
 	name: {
 		type: 'string'
 	},
-	userid: {
+	user: {
 		model: 'User',
 		required: true,
 		unique: true
 	},
-	eventid: {
+	event: {
 		model: 'Events',
 		required: true,
 		unique: true

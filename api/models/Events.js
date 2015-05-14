@@ -13,7 +13,7 @@ module.exports = {
 		},
 		videos: {
 			collection: 'videos',
-			via: 'eventid'
+			via: 'event'
 		}
 	}
 };
