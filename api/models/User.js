@@ -17,8 +17,7 @@ module.exports = {
 		},
 		videos: {
 			collection: 'videos',
-			via: 'userid',
-			required: true
+			via: 'userid'
 		}
 	}
 };
